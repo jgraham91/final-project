@@ -77,15 +77,11 @@ Here we can see the architecture of the recommender system. Collaborative filter
 
 An embedding size of 50 is chosen for the size of the embedding vectors for users and movies. It determines the dimensionality of the learned representations. UserId and MovieId data are the inputs to this section of the model. Both inputs are in the shape (1,), indicating a single ID is fed to the model at a time. 
 
-#### Collaboritve Filtering
-
 The userId and movieId are both made into embedding layers, where the information is mapped to dense representation vectors of size embedding_size.  The embedding layers are then reshaped to a flat shape of (50,).   To capture the relationship between users and the movies we take the dot product of the reshaped movie and user embeddings.  
-
-#### Neural Network
 
 Similar to the collaboriatve filtering side, the inputs (userId and movieId) are turned into two different embedding layers of size 50 and then reshaped to a flat shape. The vectors are concatenated and fed to a fully connected dense layer that applies a ReLU activation. It reduces the dimensionality of the concatenated embeddings to embedding_size/2.
 
-### Genre and Tag Features.
+### Genre and Tag Features
 
 This section of the model captures the content based aspects of the hybrid recommender model.   The genre input are one-hot encoded vectors of a movie's genres and the tag input are one-hot encoded vectors of a movie's tags. The tags and the genres are both fed into their own fully connected dense layers and undergo ReLU activations.  The respective nueral nets capture relevant features unqiue to each movie.
 
